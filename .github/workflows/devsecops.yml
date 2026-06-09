@@ -47,7 +47,7 @@ jobs:
       run: bandit -r ./todo_project -f txt -o bandit-report.txt || true
 
     - name: Upload do Relatório SAST
-      uses: actions/artifacts@v3
+      uses: actions/upload-artifact@v3
       with:
         name: relatorio-sast-bandit
         path: bandit-report.txt
@@ -70,5 +70,4 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         target: 'http://localhost:5000'
-        rules_file_name: '.zap/rules.tsv'
         fail_action: false
